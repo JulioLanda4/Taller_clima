@@ -1,28 +1,39 @@
-# Taller: Ciencia de datos y metodología para análisis del clima
+# Ciencia de datos y metodología para análisis del clima
 
-Repositorio para publicar la presentación del taller y distribuir el material de trabajo para asistentes.
+Material público del taller **Ciencia de datos y metodología para análisis del clima**. El objetivo es mostrar un flujo práctico para pasar de archivos climáticos a una interpretación técnica usando datos EMA, archivos EPW, Weather Data, Climate Consultant, Jupyter y un cierre aplicado con EnerHabitat.
 
 ## Presentación
 
-Abrir `index.html` desde GitHub Pages.
+La presentación principal está en:
 
-## Material para asistentes
+[index.html](index.html)
 
-Descarga directa:
+## Material de trabajo
+
+El material para asistentes se descarga como un solo archivo:
 
 [dist/taller-clima-asistentes.zip](dist/taller-clima-asistentes.zip)
 
-El ZIP contiene la libreta Jupyter, datos EPW/EMA, scripts de apoyo, `materials.ini` y requisitos de Python. No es necesario descargar el repositorio completo para participar en el taller.
+El ZIP incluye:
 
-## Estructura del repositorio
+- Datos climáticos de ejemplo: EPW de Cuernavaca y CSV de EMA IMTA.
+- Libreta Jupyter casi resuelta para el análisis guiado.
+- Scripts de apoyo para generar gráficas.
+- Archivo `materials.ini` para el ejemplo final con EnerHabitat.
+- Archivo `requirements.txt` con las dependencias de Python.
 
-- `index.html`: presentación renderizada.
-- `index.qmd`: fuente editable de la presentación.
-- `index_files/`: dependencias locales generadas por Quarto para Reveal.js.
-- `img/`: imágenes usadas por la presentación.
-- `dist/taller-clima-asistentes.zip`: material descargable para asistentes.
-- `styles.css`: estilos de la presentación.
+## Contenido del taller
 
-## Publicación en GitHub Pages
+- Introducción a clima, datos climáticos y preguntas de análisis.
+- Revisión de fuentes EMA y EPW.
+- Exploración con Weather Data y Climate Consultant.
+- Análisis reproducible en Jupyter con pandas y Plotly.
+- Actividad guiada con preguntas e interpretación.
+- Ejemplo final con EnerHabitat comparando muros norte, este, sur y oeste.
 
-Configurar GitHub Pages para servir desde la rama principal y la carpeta raíz (`/`). La presentación quedará disponible en la URL de Pages del repositorio.
+## Autor
+
+Julio Landa
+
+- Web: <https://juliolanda4.github.io/JulioLanda/>
+- LinkedIn: <https://www.linkedin.com/in/juliolanda4/>

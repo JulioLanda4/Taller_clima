@@ -27,15 +27,11 @@ De archivos climáticos a patrones interpretables
 EPW · EMA · Weather Data · Climate Consultant · Python/Jupyter
 :::
 
-::: notes
-Enfatizar que el taller no se centra en diseño bioclimático. El producto es una lectura técnica del clima usando un flujo reproducible.
-:::
-
 ## 2. Material para trabajar durante el taller
 
 ::: {.grid-2}
 :::{}
-Descargar al inicio:
+Material disponible:
 
 - [dist/taller-clima-asistentes.zip](dist/taller-clima-asistentes.zip)
 - EPW de Cuernavaca
@@ -51,9 +47,9 @@ Requisitos:
 - Conocimientos básicos de Python
 
 ::: {.callout}
-**Dinámica**
+**Propósito**
 
-El instructor muestra cada paso y los asistentes lo replican con la misma carpeta de trabajo.
+El paquete permite seguir el análisis sin descargar el repositorio completo.
 :::
 :::
 
