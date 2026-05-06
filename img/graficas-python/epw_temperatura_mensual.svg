@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="430" viewBox="0 0 920 430">
+<style>
+text{font-family:Aptos,Segoe UI,Arial,sans-serif;fill:#263445}
+.title{font-size:22px;font-weight:700}.label{font-size:13px}.tick{font-size:11px;fill:#617084}
+.grid{stroke:#d9e2ec;stroke-width:1}.axis{stroke:#728197;stroke-width:1.2}
+</style>
+<text x="68" y="30" class="title">EPW Cuernavaca: temperatura mensual</text>
+<line x1="68" y1="54.0" x2="896" y2="54.0" class="grid"/>
+<text x="58" y="58.0" text-anchor="end" class="tick">38</text>
+<line x1="68" y1="116.8" x2="896" y2="116.8" class="grid"/>
+<text x="58" y="120.8" text-anchor="end" class="tick">32</text>
+<line x1="68" y1="179.6" x2="896" y2="179.6" class="grid"/>
+<text x="58" y="183.6" text-anchor="end" class="tick">25</text>
+<line x1="68" y1="242.4" x2="896" y2="242.4" class="grid"/>
+<text x="58" y="246.4" text-anchor="end" class="tick">18</text>
+<line x1="68" y1="305.2" x2="896" y2="305.2" class="grid"/>
+<text x="58" y="309.2" text-anchor="end" class="tick">11</text>
+<line x1="68" y1="368.0" x2="896" y2="368.0" class="grid"/>
+<text x="58" y="372.0" text-anchor="end" class="tick">4</text>
+<line x1="68" y1="54" x2="68" y2="368" class="axis"/>
+<line x1="68" y1="368" x2="896" y2="368" class="axis"/>
+<text x="68.0" y="400" text-anchor="middle" class="tick">Ene</text>
+<text x="143.3" y="400" text-anchor="middle" class="tick">Feb</text>
+<text x="218.5" y="400" text-anchor="middle" class="tick">Mar</text>
+<text x="293.8" y="400" text-anchor="middle" class="tick">Abr</text>
+<text x="369.1" y="400" text-anchor="middle" class="tick">May</text>
+<text x="444.4" y="400" text-anchor="middle" class="tick">Jun</text>
+<text x="519.6" y="400" text-anchor="middle" class="tick">Jul</text>
+<text x="594.9" y="400" text-anchor="middle" class="tick">Ago</text>
+<text x="670.2" y="400" text-anchor="middle" class="tick">Sep</text>
+<text x="745.5" y="400" text-anchor="middle" class="tick">Oct</text>
+<text x="820.7" y="400" text-anchor="middle" class="tick">Nov</text>
+<text x="896.0" y="400" text-anchor="middle" class="tick">Dic</text>
+<polyline fill="none" stroke="#2f80ed" stroke-width="3" points="68.0,346.3 143.3,298.1 218.5,295.4 293.8,290.7 369.1,274.0 444.4,279.6 519.6,278.7 594.9,288.9 670.2,288.9 745.5,288.9 820.7,327.8 896.0,341.7"/>
+<polyline fill="none" stroke="#263445" stroke-width="3" points="68.0,236.4 143.3,218.0 218.5,193.9 293.8,179.3 369.1,178.5 444.4,203.4 519.6,203.9 594.9,210.4 670.2,214.0 745.5,215.5 820.7,224.1 896.0,240.4"/>
+<polyline fill="none" stroke="#d64545" stroke-width="3" points="68.0,131.3 143.3,120.2 218.5,94.2 293.8,75.7 369.1,84.0 444.4,127.6 519.6,131.3 594.9,131.3 670.2,131.3 745.5,129.4 820.7,140.5 896.0,123.9"/>
+<rect x="68" y="408" width="13" height="13" fill="#2f80ed"/>
+<text x="86" y="419" class="label">Mínima</text>
+<rect x="248" y="408" width="13" height="13" fill="#263445"/>
+<text x="266" y="419" class="label">Media</text>
+<rect x="428" y="408" width="13" height="13" fill="#d64545"/>
+<text x="446" y="419" class="label">Máxima</text>
+<text x="18" y="211.0" transform="rotate(-90 18,211.0)" class="label">°C</text>
+</svg>

@@ -1,0 +1,12 @@
+.quarto/
+README_asistentes_files/
+notebooks/analisis_clima_files/
+contexto/contexto_taller_files/
+notebooks/
+contexto/
+data/
+materiales/
+scripts/__pycache__/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc

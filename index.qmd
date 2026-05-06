@@ -1,0 +1,558 @@
+---
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    transition: fade
+    width: 1366
+    height: 768
+    margin: 0.07
+    title-slide: false
+    css: styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+lang: es
+---
+
+## 1. Ciencia de datos y metodología para análisis del clima
+
+::: {.big}
+De archivos climáticos a patrones interpretables
+:::
+
+::: {.muted}
+EPW · EMA · Weather Data · Climate Consultant · Python/Jupyter
+:::
+
+::: notes
+Enfatizar que el taller no se centra en diseño bioclimático. El producto es una lectura técnica del clima usando un flujo reproducible.
+:::
+
+## 2. Material para trabajar durante el taller
+
+::: {.grid-2}
+:::{}
+Descargar al inicio:
+
+- [dist/taller-clima-asistentes.zip](dist/taller-clima-asistentes.zip)
+- EPW de Cuernavaca
+- CSV de EMA IMTA
+- Libreta Jupyter casi resuelta
+- Ejemplo EnerHabitat con materiales
+- Carpeta para guardar gráficas
+
+Requisitos:
+
+- Climate Consultant instalado
+- Python + Jupyter
+- Conocimientos básicos de Python
+
+::: {.callout}
+**Dinámica**
+
+El instructor muestra cada paso y los asistentes lo replican con la misma carpeta de trabajo.
+:::
+:::
+
+:::{.img-frame}
+![](img/asistentes/contenido_zip.png)
+:::
+:::
+
+## 3. Del dato climático a la pregunta
+
+::: {.grid-2}
+:::{}
+Antes de abrir software, definimos el problema:
+
+- **Tiempo meteorológico:** lo que ocurre en un momento específico
+- **Clima:** patrones, rangos y extremos de un sitio
+- **Dato climático:** evidencia para revisar esos patrones
+
+::: {.callout}
+Entender clima es identificar cuándo, cuánto y con qué frecuencia ocurren condiciones críticas.
+:::
+:::
+
+:::{.img-frame}
+![](img/graficas-python/ema_temperatura_humedad.svg)
+:::
+:::
+
+## 4. Por qué los datos ayudan
+
+::: {.grid-2}
+:::{}
+Los datos permiten pasar de percepción a lectura técnica:
+
+- **Temperatura:** ¿cuándo ocurren máximos y mínimos?
+- **Humedad:** ¿sube durante la noche?
+- **Radiación:** ¿cuándo hay mayor disponibilidad solar?
+- **Viento:** ¿hay dirección o magnitud dominante?
+
+::: {.callout}
+Una gráfica sin contexto no basta: se revisan fuente, periodo, unidades y resolución temporal.
+:::
+:::
+
+:::{}
+Flujo del taller:
+
+::: {.flow}
+:::{.step}
+Fuente
+:::
+:::{.step}
+Revisión
+:::
+:::{.step}
+Visualización
+:::
+:::{.step}
+Pregunta
+:::
+:::{.step}
+Interpretación
+:::
+:::
+:::
+:::
+
+## 5. Tipos de datos climáticos
+
+::: {.grid-2}
+:::{.tile}
+**EMA**
+
+- Datos medidos
+- Periodo específico
+- Alta resolución temporal
+- Requiere revisar huecos y unidades
+:::
+
+:::{.tile}
+**EPW**
+
+- Archivo climático anual
+- 8760 registros horarios
+- Útil para software energético
+- Representa un perfil típico o histórico
+:::
+:::
+
+::: {.callout}
+La EMA muestra una ventana reciente observada; el EPW permite leer el comportamiento anual de referencia.
+:::
+
+## 6. Fuente EMA: portal de CONAGUA
+
+::: {.grid-2}
+:::{.img-frame}
+![](img/emas/conagua_mapa_ema.png)
+:::
+
+:::{}
+Ejemplo del taller:
+
+- Estación: Instituto Mexicano de Tecnología del Agua
+- Estado: Morelos
+- Municipio: Jiutepec
+- Descarga usada: 90 días
+- Archivo: <span class="file">data/emas/*.csv</span>
+- Sitio: <https://smn.conagua.gob.mx/es/observando-el-tiempo/estaciones-meteorologicas-automaticas-ema-s>
+:::
+:::
+
+## 7. Descarga EMA: seleccionar periodo
+
+::: {.grid-2}
+:::{.img-frame}
+![](img/emas/conagua_descarga_ema.png)
+:::
+
+:::{}
+Antes de graficar:
+
+- Confirmar estación
+- Confirmar coordenadas
+- Revisar periodo disponible
+- Descargar CSV
+- Guardar sin cambiar el nombre de columnas
+:::
+:::
+
+## 8. Descargar EPW en OneBuilding
+
+::: {.grid-2}
+:::{}
+Proceso:
+
+1. Entrar a Climate.OneBuilding
+2. Ir a WMO Region 4
+3. Seleccionar `MEX_Mexico`
+4. Buscar `MOR_Morelos`
+5. Descargar el ZIP de Cuernavaca
+
+Enlaces útiles:
+
+- <https://climate.onebuilding.org/>
+- <https://climate.onebuilding.org/WMO_Region_4_North_and_Central_America/MEX_Mexico/index.html>
+- <https://energyplus.net/weather>
+- <https://www.ladybug.tools/epwmap/>
+:::
+
+:::{.img-frame}
+![](img/onebuilding/onebuilding_inicio.png)
+:::
+:::
+
+## 9. OneBuilding: México y Morelos
+
+::: {.grid-2}
+:::{}
+Ruta dentro del sitio:
+
+- `North-Central America - Region 4`
+- `MEX_Mexico`
+- `MOR_Morelos`
+- `Cuernavaca-Matamoros.Intl.AP`
+
+::: {.img-frame}
+![](img/onebuilding/onebuilding_norteamerica.png)
+:::
+:::
+
+:::{}
+::: {.img-frame}
+![](img/onebuilding/onebuilding_mexico_estados.png)
+:::
+
+::: {.img-frame}
+![](img/onebuilding/onebuilding_morelos_epw.png)
+:::
+:::
+:::
+
+## 10. Fuente EPW: archivo climático anual
+
+::: {.grid-2}
+:::{}
+Archivo usado:
+
+<span class="file">MEX_MOR_Cuernavaca-Matamoros.Intl.AP.767260_TMYx.epw</span>
+
+Características:
+
+- Sitio: Cuernavaca-Matamoros Intl. AP
+- 8760 registros horarios
+- Periodo TMYx construido con datos 1980-2025
+- Variables: temperatura, humedad, radiación y viento
+:::
+
+```text
+LOCATION,Cuernavaca-Matamoros.Intl.AP,MOR,MEX,...
+DATA PERIODS,1,1,Data,Sunday,1/ 1,12/31
+1994,1,1,1,0,...,15.40,8.70,64,...,322,0,0,...
+```
+:::
+
+## 11. Weather Data: demostración en vivo
+
+::: {.grid-2}
+:::{}
+Uso durante el taller:
+
+1. Abrir Weather Data
+2. Cargar el EPW
+3. Revisar temperatura
+4. Cambiar variable y escala
+5. Identificar visualmente un periodo crítico
+
+::: {.callout}
+La demostración en vivo debe terminar con una pregunta: ¿qué mes u hora parece más crítica?
+:::
+:::
+
+:::{.img-frame}
+![](img/weather-data/weather_data_temperatura.png)
+:::
+:::
+
+## 12. Climate Consultant: abrir el EPW
+
+::: {.grid-2}
+:::{.img-frame}
+![](img/climate-consultant/cc_abrir_epw.png)
+:::
+
+:::{}
+Secuencia:
+
+- Seleccionar unidades métricas
+- Abrir archivo EPW existente
+- Confirmar ubicación
+- Pasar a gráficas climáticas
+:::
+:::
+
+## 13. Climate Consultant: lectura de temperatura
+
+::: {.grid-2}
+:::{}
+Preguntas de lectura:
+
+- ¿Qué meses tienen máximos más altos?
+- ¿El rango anual es amplio o moderado?
+- ¿Qué meses se acercan más a la zona de confort?
+- ¿Qué patrón confirma después Python?
+:::
+
+:::{.img-frame}
+![](img/climate-consultant/cc_rango_temperatura.png)
+:::
+:::
+
+## 14. Del software a Jupyter
+
+::: {.grid-2}
+:::{}
+Después de Weather Data y Climate Consultant, la libreta permite verificar con datos:
+
+- Cargar librerías
+- Leer EMA y EPW
+- Revisar columnas, periodos y unidades
+- Generar las mismas gráficas base
+- Calcular indicadores puntuales
+:::
+
+:::{.callout}
+Hasta este punto los asistentes solo ejecutan celdas. La actividad empieza después de tener las gráficas e indicadores.
+:::
+:::
+
+## 15. Python/Jupyter: leer el CSV de EMA
+
+::: {.grid-2}
+```python
+from pathlib import Path
+import pandas as pd
+import plotly.express as px
+
+ROOT = Path.cwd()
+EMA_CSV = ROOT / "data" / "emas" / "INSTITUTO_MEXICANO_DE_TECNOLOG__A_DEL_AGUA_90_dias.csv"
+
+with EMA_CSV.open(encoding="utf-8-sig") as f:
+    lines = f.readlines()
+
+header_row = next(
+    i for i, line in enumerate(lines)
+    if line.startswith('"Fecha Local"')
+)
+
+ema = pd.read_csv(EMA_CSV, skiprows=header_row)
+ema["Fecha Local"] = pd.to_datetime(ema["Fecha Local"])
+ema = ema.sort_values("Fecha Local")
+```
+
+:::{}
+Qué se explica:
+
+- El CSV trae metadatos antes de la tabla
+- Se detecta la fila real del encabezado
+- Se convierte la fecha a tipo temporal
+- Ya se puede agrupar y graficar
+:::
+:::
+
+## 16. EMA: temperatura y humedad
+
+::: {.grid-2}
+:::{.img-frame}
+![](img/graficas-python/ema_temperatura_humedad.svg)
+:::
+
+```python
+ema_daily = ema.set_index("Fecha Local").resample("D").agg({
+    "Temperatura del Aire (°C)": "mean",
+    "Humedad relativa (%)": "mean",
+    "Radiación Solar (W/m²)": lambda x: x.sum() / 6 / 1000
+})
+
+fig = px.line(
+    ema_daily.reset_index(),
+    x="Fecha Local",
+    y=["Temperatura del Aire (°C)", "Humedad relativa (%)"],
+    title="EMA IMTA: temperatura y humedad diaria",
+    labels={"value": "°C / %", "variable": "Variable"}
+)
+
+fig.show()
+```
+:::
+
+## 17. Python/Jupyter: leer el EPW
+
+::: {.grid-2}
+```python
+epw_cols = [
+    "year","month","day","hour","minute","datasource",
+    "dry_bulb","dew_point","rh","pressure",
+    "extr_horiz_rad","extr_direct_norm_rad","horiz_ir",
+    "ghi","dni","dhi",
+    "global_horiz_illum","direct_norm_illum",
+    "diffuse_horiz_illum","zenith_lum",
+    "wind_dir","wind_speed"
+]
+
+epw = pd.read_csv(
+    EPW,
+    skiprows=8,
+    header=None,
+    names=epw_cols,
+    usecols=range(len(epw_cols))
+)
+```
+
+:::{}
+Lectura:
+
+- El EPW inicia con 8 líneas de metadatos
+- Después viene la tabla horaria
+- `dry_bulb`, `rh`, `ghi` y `wind_speed` son suficientes para el análisis inicial
+:::
+:::
+
+## 18. EPW: patrones mensuales y hora-mes
+
+::: {.grid-2}
+:::{.img-frame}
+![](img/graficas-python/epw_temperatura_mensual.svg)
+:::
+
+:::{.img-frame}
+![](img/graficas-python/epw_mapa_hora_mes_temperatura.svg)
+:::
+:::
+
+## 19. Actividad guiada
+
+::: {.grid-2}
+:::{}
+Responder usando **Weather Data**, **Climate Consultant** y **Jupyter**:
+
+1. ¿Cuál es la temperatura máxima del EPW y cuándo ocurre?
+2. ¿Cuál fue el día más húmedo en la EMA?
+3. ¿Cuál es el mes crítico para temperatura?
+4. Genera en Jupyter una gráfica de radiación mensual del EPW
+:::
+
+:::{.callout}
+Entrega: una lectura de Weather Data, una lectura de Climate Consultant, una gráfica o tabla de Jupyter y una interpretación de 5 a 7 líneas.
+:::
+:::
+
+## 20. Ejemplo completo: EnerHabitat
+
+::: {.grid-2}
+:::{}
+Después del análisis climático, el EPW puede alimentar un ejemplo de evaluación térmica:
+
+- Cuatro muros verticales
+- Norte, sur, este y oeste
+- Temperatura sol-aire media
+- Comparación diaria y anual
+
+**EnerHabitat** se presenta como aplicación avanzada desarrollada en el **IER-UNAM**.
+
+Referencia: <https://pypi.org/project/enerhabitat/>
+:::
+
+:::{.callout}
+El ejemplo usa el mismo EPW del taller, `materials.ini` y gráficas simples de Matplotlib.
+:::
+:::
+
+## 21. EnerHabitat: flujo de ejemplo
+
+::: {.grid-2}
+```python
+from enerhabitat import Location, System, config
+
+config.file = "materials.ini"
+
+location = Location("data/epw/MEX_MOR_...TMYx.epw")
+
+orientaciones = {
+    "Norte": 0,
+    "Este": 90,
+    "Sur": 180,
+    "Oeste": 270,
+}
+
+for nombre, azimuth in orientaciones.items():
+    location.meanDay(day=15, month=5, year=2026)
+    muro = System(
+        location=location,
+        tilt=90,
+        azimuth=azimuth,
+        absortance=0.65,
+        layers=[("Concreto", 0.12), ("Aislamiento", 0.05), ("Yeso", 0.015)],
+    )
+    tsa = muro.Tsa()
+```
+
+:::{}
+Qué se muestra:
+
+- El EPW define el clima exterior
+- `materials.ini` define propiedades térmicas
+- Cada muro cambia por orientación
+- Matplotlib resume el comportamiento sin complejidad visual
+:::
+:::
+
+## 22. EnerHabitat: gráficas generadas
+
+::: {.grid-2}
+:::{.img-frame}
+![](img/enerhabitat/muros_dia_medio_mayo.png)
+:::
+
+:::{.img-frame}
+![](img/enerhabitat/muros_promedio_anual.png)
+:::
+:::
+
+::: {.callout}
+Lectura: ¿qué orientación es más crítica en el día medio y cuál se mantiene alta durante el año?
+:::
+
+## 23. Agradecimientos
+
+::: {.question}
+Gracias.
+:::
+
+::: {.grid-2}
+:::{}
+::: {.big}
+Julio Landa
+:::
+
+::: {.muted}
+Ciencia de datos y metodología para análisis del clima
+:::
+
+Analizar clima es pasar de archivos a interpretación.
+:::
+
+:::{}
+Contacto:
+
+- Web: <https://juliolanda4.github.io/JulioLanda/>
+- LinkedIn: <https://www.linkedin.com/in/juliolanda4/>
+:::
+:::
