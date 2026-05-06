@@ -8,6 +8,12 @@ La presentación principal está en:
 
 [index.html](index.html)
 
+La fuente de la presentación es un proyecto Quarto:
+
+- `_quarto.yml`: configuración del proyecto.
+- `index.qmd`: contenido fuente de la presentación.
+- `styles.css`: estilos de la presentación.
+
 ## Material de trabajo
 
 El material para asistentes se descarga como un solo archivo:

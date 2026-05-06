@@ -1,4 +1,5 @@
 .quarto/
+!_quarto.yml
 README_asistentes_files/
 notebooks/analisis_clima_files/
 contexto/contexto_taller_files/
@@ -10,3 +11,6 @@ scripts/__pycache__/
 __pycache__/
 .ipynb_checkpoints/
 *.pyc
+
+/.quarto/
+**/*.quarto_ipynb

@@ -1,0 +1,23 @@
+project:
+  type: default
+  render:
+    - index.qmd
+
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    transition: fade
+    width: 1366
+    height: 768
+    margin: 0.07
+    title-slide: false
+    css: styles.css
+
+execute:
+  echo: false
+  warning: false
+  message: false
+
+lang: es
