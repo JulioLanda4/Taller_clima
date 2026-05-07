@@ -211,9 +211,9 @@
 <li><a href="dist/taller-clima-asistentes.zip">dist/taller-clima-asistentes.zip</a></li>
 <li>EPW de Cuernavaca</li>
 <li>CSV de EMA IMTA</li>
-<li>Libreta Jupyter casi resuelta</li>
+<li>Libreta Jupyter para an?lisis guiado</li>
 <li>Ejemplo EnerHabitat con materiales</li>
-<li>Carpeta para guardar gráficas</li>
+<li>Gráficas de referencia</li>
 </ul>
 <p>Requisitos:</p>
 <ul>
@@ -254,7 +254,7 @@
 </div>
 </div>
 <div class="img-frame">
-<p><img data-src="img/graficas-python/ema_temperatura_humedad.svg"></p>
+<p><img data-src="img/graficas-python/ema_temperatura_humedad.png"></p>
 </div>
 </div>
 </section>
@@ -521,7 +521,7 @@
 <div class="grid-2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb2-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-3"><a href=""></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb2-3"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-4"><a href=""></a></span>
 <span id="cb2-5"><a href=""></a>ROOT <span class="op">=</span> Path.cwd()</span>
 <span id="cb2-6"><a href=""></a>EMA_CSV <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"data"</span> <span class="op">/</span> <span class="st">"emas"</span> <span class="op">/</span> <span class="st">"INSTITUTO_MEXICANO_DE_TECNOLOG__A_DEL_AGUA_90_dias.csv"</span></span>
@@ -552,7 +552,7 @@
 <h2>16. EMA: temperatura y humedad</h2>
 <div class="grid-2">
 <div class="img-frame">
-<p><img data-src="img/graficas-python/ema_temperatura_humedad.svg"></p>
+<p><img data-src="img/graficas-python/ema_temperatura_humedad.png"></p>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>ema_daily <span class="op">=</span> ema.set_index(<span class="st">"Fecha Local"</span>).resample(<span class="st">"D"</span>).agg({</span>
 <span id="cb3-2"><a href=""></a>    <span class="st">"Temperatura del Aire (°C)"</span>: <span class="st">"mean"</span>,</span>
@@ -575,7 +575,7 @@
 <h2>17. Python/Jupyter: leer el EPW</h2>
 <div class="grid-2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>epw_cols <span class="op">=</span> [</span>
-<span id="cb4-2"><a href=""></a>    <span class="st">"year"</span>,<span class="st">"month"</span>,<span class="st">"day"</span>,<span class="st">"hour"</span>,<span class="st">"minute"</span>,<span class="st">"datasource"</span>,</span>
+<span id="cb4-2"><a href=""></a>    <span class="st">"year"</span>,<span class="st">"month"</span>,<span class="st">"day"</span>,<span class="st">"hour"</span>,<span class="st">"minute"</span>,<span class="st">"data_source"</span>,</span>
 <span id="cb4-3"><a href=""></a>    <span class="st">"dry_bulb"</span>,<span class="st">"dew_point"</span>,<span class="st">"rh"</span>,<span class="st">"pressure"</span>,</span>
 <span id="cb4-4"><a href=""></a>    <span class="st">"extr_horiz_rad"</span>,<span class="st">"extr_direct_norm_rad"</span>,<span class="st">"horiz_ir"</span>,</span>
 <span id="cb4-5"><a href=""></a>    <span class="st">"ghi"</span>,<span class="st">"dni"</span>,<span class="st">"dhi"</span>,</span>
@@ -590,7 +590,8 @@
 <span id="cb4-14"><a href=""></a>    header<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb4-15"><a href=""></a>    names<span class="op">=</span>epw_cols,</span>
 <span id="cb4-16"><a href=""></a>    usecols<span class="op">=</span><span class="bu">range</span>(<span class="bu">len</span>(epw_cols))</span>
-<span id="cb4-17"><a href=""></a>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-17"><a href=""></a>)</span>
+<span id="cb4-18"><a href=""></a>epw <span class="op">=</span> epw.drop(columns<span class="op">=</span>[<span class="st">"data_source"</span>])</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div>
 <p>Lectura:</p>
 <ul>
@@ -605,10 +606,10 @@
 <h2>18. EPW: patrones mensuales y hora-mes</h2>
 <div class="grid-2">
 <div class="img-frame">
-<p><img data-src="img/graficas-python/epw_temperatura_mensual.svg"></p>
+<p><img data-src="img/graficas-python/epw_temperatura_mensual.png"></p>
 </div>
 <div class="img-frame">
-<p><img data-src="img/graficas-python/epw_mapa_hora_mes_temperatura.svg"></p>
+<p><img data-src="img/graficas-python/epw_mapa_hora_mes_temperatura.png"></p>
 </div>
 </div>
 </section>
@@ -621,13 +622,13 @@
 <li>¿Cuál es la temperatura máxima del EPW y cuándo ocurre?</li>
 <li>¿Cuál fue el día más húmedo en la EMA?</li>
 <li>¿Cuál es el mes crítico para temperatura?</li>
-<li>Genera en Jupyter una gráfica de radiación mensual del EPW</li>
+<li>Genera en Jupyter una gr?fica de l?neas con la temperatura m?xima y la temperatura m?nima de cada mes del EPW</li>
 </ol>
 </div>
 <div class="callout callout-none no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>Entrega: una lectura de Weather Data, una lectura de Climate Consultant, una gráfica o tabla de Jupyter y una interpretación de 5 a 7 líneas.</p>
+<p>Entrega: una lectura de Weather Data, una lectura de Climate Consultant, una gráfica de Jupyter y una interpretación de 5 a 7 líneas.</p>
 </div>
 </div>
 </div>

@@ -17,9 +17,9 @@ Material disponible:
 - [dist/taller-clima-asistentes.zip](dist/taller-clima-asistentes.zip)
 - EPW de Cuernavaca
 - CSV de EMA IMTA
-- Libreta Jupyter casi resuelta
+- Libreta Jupyter para an?lisis guiado
 - Ejemplo EnerHabitat con materiales
-- Carpeta para guardar gráficas
+- Gráficas de referencia
 
 Requisitos:
 
@@ -55,7 +55,7 @@ Entender clima es identificar cuándo, cuánto y con qué frecuencia ocurren con
 :::
 
 :::{.img-frame}
-![](img/graficas-python/ema_temperatura_humedad.svg)
+![](img/graficas-python/ema_temperatura_humedad.png)
 :::
 :::
 
@@ -316,7 +316,7 @@ Hasta este punto los asistentes solo ejecutan celdas. La actividad empieza despu
 ```python
 from pathlib import Path
 import pandas as pd
-import plotly.express as px
+import matplotlib.pyplot as plt
 
 ROOT = Path.cwd()
 EMA_CSV = ROOT / "data" / "emas" / "INSTITUTO_MEXICANO_DE_TECNOLOG__A_DEL_AGUA_90_dias.csv"
@@ -348,7 +348,7 @@ Qué se explica:
 
 ::: {.grid-2}
 :::{.img-frame}
-![](img/graficas-python/ema_temperatura_humedad.svg)
+![](img/graficas-python/ema_temperatura_humedad.png)
 :::
 
 ```python
@@ -375,7 +375,7 @@ fig.show()
 ::: {.grid-2}
 ```python
 epw_cols = [
-    "year","month","day","hour","minute","datasource",
+    "year","month","day","hour","minute","data_source",
     "dry_bulb","dew_point","rh","pressure",
     "extr_horiz_rad","extr_direct_norm_rad","horiz_ir",
     "ghi","dni","dhi",
@@ -391,6 +391,7 @@ epw = pd.read_csv(
     names=epw_cols,
     usecols=range(len(epw_cols))
 )
+epw = epw.drop(columns=["data_source"])
 ```
 
 :::{}
@@ -406,11 +407,11 @@ Lectura:
 
 ::: {.grid-2}
 :::{.img-frame}
-![](img/graficas-python/epw_temperatura_mensual.svg)
+![](img/graficas-python/epw_temperatura_mensual.png)
 :::
 
 :::{.img-frame}
-![](img/graficas-python/epw_mapa_hora_mes_temperatura.svg)
+![](img/graficas-python/epw_mapa_hora_mes_temperatura.png)
 :::
 :::
 
@@ -423,11 +424,11 @@ Responder usando **Weather Data**, **Climate Consultant** y **Jupyter**:
 1. ¿Cuál es la temperatura máxima del EPW y cuándo ocurre?
 2. ¿Cuál fue el día más húmedo en la EMA?
 3. ¿Cuál es el mes crítico para temperatura?
-4. Genera en Jupyter una gráfica de radiación mensual del EPW
+4. Genera en Jupyter una gr?fica de l?neas con la temperatura m?xima y la temperatura m?nima de cada mes del EPW
 :::
 
 :::{.callout}
-Entrega: una lectura de Weather Data, una lectura de Climate Consultant, una gráfica o tabla de Jupyter y una interpretación de 5 a 7 líneas.
+Entrega: una lectura de Weather Data, una lectura de Climate Consultant, una gráfica de Jupyter y una interpretación de 5 a 7 líneas.
 :::
 :::
 
