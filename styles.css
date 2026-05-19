@@ -60,6 +60,34 @@
   padding: 0.68rem 0.82rem;
   border-radius: 6px;
 }
+.delivery-card {
+  border: 1px solid #b9d4f4;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 22px rgba(47, 128, 237, 0.12);
+}
+.delivery-head {
+  background: #0b63ce;
+  color: #ffffff;
+  padding: 0.55rem 0.75rem;
+}
+.delivery-head p,
+.delivery-body p,
+.delivery-check p {
+  margin: 0;
+}
+.delivery-body {
+  padding: 0.72rem 0.78rem;
+}
+.delivery-body a {
+  overflow-wrap: anywhere;
+}
+.delivery-check {
+  border-top: 1px solid #d8e8fa;
+  background: #eef6ff;
+  padding: 0.58rem 0.78rem;
+}
 .flow {
   display: flex;
   gap: 0.46rem;
@@ -88,6 +116,7 @@
   max-height: 465px;
   object-fit: contain;
   display: block;
+  cursor: zoom-in;
 }
 .wide-img img {
   max-height: 505px;
@@ -104,4 +133,163 @@
   background: #eef2f7;
   border-radius: 4px;
   padding: 0.05rem 0.25rem;
+}
+.reveal .slides section.cover-slide {
+  min-height: 100%;
+  padding: 2.2rem 2.6rem !important;
+  color: #f8fafc;
+  background:
+    linear-gradient(115deg, rgba(5, 22, 38, 0.94) 0%, rgba(9, 52, 76, 0.86) 48%, rgba(9, 83, 86, 0.76) 100%),
+    url("img/graficas-python/epw_mapa_hora_mes_temperatura.png");
+  background-size: 315% auto;
+  background-position: 52% 48%;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.reveal .slides section.cover-slide h2 {
+  max-width: 920px;
+  margin-top: 0.25rem;
+  color: #ffffff;
+  border-bottom: 0;
+  padding-bottom: 0;
+  font-size: 1.65em;
+  line-height: 1.02;
+}
+.cover-kicker {
+  display: inline-flex;
+  width: max-content;
+  margin-bottom: 0.65rem;
+  padding: 0.18rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  border-radius: 999px;
+  color: #d5f3ff;
+  font-size: 0.45em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.cover-title {
+  max-width: 760px;
+  margin-top: 3.1rem;
+  color: #ffffff;
+  font-size: 1.18em;
+  font-weight: 760;
+  line-height: 1.04;
+}
+.cover-subtitle {
+  max-width: 770px;
+  margin-top: 0.55rem;
+  color: #c7d7e5;
+  font-size: 0.58em;
+  font-weight: 560;
+}
+.cover-tags {
+  display: flex;
+  gap: 0.48rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+.cover-tag {
+  width: max-content;
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.42em;
+  font-weight: 680;
+}
+.lift-img {
+  align-self: start;
+  margin-top: -0.55rem;
+}
+.lift-img img {
+  max-height: 520px;
+}
+.compact-img img {
+  max-height: 340px;
+}
+.enerhabitat-shots {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+.enerhabitat-shots img {
+  max-height: 215px;
+}
+.thanks-grid {
+  align-items: start;
+}
+.thanks-profile {
+  display: grid;
+  grid-template-columns: 275px 1fr;
+  column-gap: 0.9rem;
+  align-items: center;
+}
+.thanks-profile .big,
+.thanks-profile .muted,
+.thanks-profile p {
+  grid-column: 2;
+}
+.thanks-profile > p:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  margin: 0;
+}
+.avatar {
+  width: 265px;
+  height: 265px;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 50%;
+  border: 5px solid #e6eef8;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+  cursor: zoom-in;
+}
+.thanks-info,
+.cneer-card {
+  font-size: 0.82em;
+}
+.cneer-card {
+  border-left: 5px solid #0b63ce;
+  background: #f3f8ff;
+  border-radius: 8px;
+  padding: 0.68rem 0.82rem;
+}
+.cneer-card p {
+  margin: 0.2rem 0;
+}
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: rgba(15, 23, 42, 0.86);
+}
+.image-lightbox.is-open {
+  display: flex;
+}
+.image-lightbox img {
+  max-width: min(94vw, 1280px);
+  max-height: 88vh;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+.image-lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
 }

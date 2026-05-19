@@ -14,6 +14,7 @@ format:
     margin: 0.07
     title-slide: false
     css: styles.css
+    include-after-body: lightbox.html
 
 execute:
   echo: false

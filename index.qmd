@@ -1,11 +1,27 @@
-## 1. Ciencia de datos y metodología para análisis del clima
+## 1. Ciencia de datos y metodología para análisis del clima {.cover-slide}
 
-::: {.big}
+::: {.cover-kicker}
+Taller práctico
+:::
+
+::: {.cover-title}
 De archivos climáticos a patrones interpretables
 :::
 
-::: {.muted}
+::: {.cover-subtitle}
 EPW · EMA · Weather Data · Climate Consultant · Python/Jupyter
+:::
+
+::: {.cover-tags}
+::: {.cover-tag}
+descarga
+:::
+::: {.cover-tag}
+visualización
+:::
+::: {.cover-tag}
+análisis
+:::
 :::
 
 ## 2. Material para trabajar durante el taller
@@ -17,9 +33,11 @@ Material disponible:
 - [dist/taller-clima-asistentes.zip](dist/taller-clima-asistentes.zip)
 - EPW de Cuernavaca
 - CSV de EMA IMTA
-- Libreta Jupyter para an?lisis guiado
+- Libreta Jupyter para análisis guiado
 - Ejemplo EnerHabitat con materiales
 - Gráficas de referencia
+- Weather Data: <https://drajmarsh.bitbucket.io/weather-data.html>
+- Climate Consultant: <https://www.sbse.org/resources/climate-consultant>
 
 Requisitos:
 
@@ -34,7 +52,7 @@ El paquete permite seguir el análisis sin descargar el repositorio completo.
 :::
 :::
 
-:::{.img-frame}
+:::{.img-frame .lift-img}
 ![](img/asistentes/contenido_zip.png)
 :::
 :::
@@ -75,32 +93,20 @@ Una gráfica sin contexto no basta: se revisan fuente, periodo, unidades y resol
 :::
 :::
 
-:::{}
-Flujo del taller:
+:::{.tile}
+**Cómo leer una gráfica climática**
 
-::: {.flow}
-:::{.step}
-Fuente
-:::
-:::{.step}
-Revisión
-:::
-:::{.step}
-Visualización
-:::
-:::{.step}
-Pregunta
-:::
-:::{.step}
-Interpretación
+- Revisar fuente, periodo y unidades
+- Ubicar máximos, mínimos y rangos
+- Comparar día/noche y temporada
+- Preguntar si el patrón afecta confort, energía u operación
+- Convertir la observación en una decisión de análisis
 :::
 :::
-:::
-:::
-
 ## 5. Tipos de datos climáticos
 
 ::: {.grid-2}
+:::{.compact}
 :::{.tile}
 **EMA**
 
@@ -120,8 +126,13 @@ Interpretación
 :::
 :::
 
+:::{.img-frame .wide-img}
+![](img/graficas-python/comparativa_ema_epw.svg)
+:::
+:::
+
 ::: {.callout}
-La EMA muestra una ventana reciente observada; el EPW permite leer el comportamiento anual de referencia.
+La EMA muestra una ventana medida, con huecos y variación reciente; el EPW sintetiza un año horario de referencia para simulación y comparación.
 :::
 
 ## 6. Fuente EMA: portal de CONAGUA
@@ -248,9 +259,8 @@ Uso durante el taller:
 4. Cambiar variable y escala
 5. Identificar visualmente un periodo crítico
 
-::: {.callout}
-La demostración en vivo debe terminar con una pregunta: ¿qué mes u hora parece más crítica?
-:::
+Enlace: <https://drajmarsh.bitbucket.io/weather-data.html>
+
 :::
 
 :::{.img-frame}
@@ -272,6 +282,7 @@ Secuencia:
 - Abrir archivo EPW existente
 - Confirmar ubicación
 - Pasar a gráficas climáticas
+- Descarga: <https://www.sbse.org/resources/climate-consultant>
 :::
 :::
 
@@ -292,24 +303,25 @@ Preguntas de lectura:
 :::
 :::
 
-## 14. Del software a Jupyter
+## 14. De la exploración al análisis reproducible
 
 ::: {.grid-2}
 :::{}
-Después de Weather Data y Climate Consultant, la libreta permite verificar con datos:
+Weather Data y Climate Consultant ayudan a explorar rápido; Jupyter deja el procedimiento documentado:
 
-- Cargar librerías
-- Leer EMA y EPW
-- Revisar columnas, periodos y unidades
-- Generar las mismas gráficas base
-- Calcular indicadores puntuales
+- Cargar EMA y EPW desde archivos locales
+- Limpiar fechas, columnas y unidades
+- Reproducir las gráficas del taller
+- Calcular máximos, mínimos y promedios
+- Guardar resultados para la entrega
 :::
 
-:::{.callout}
-Hasta este punto los asistentes solo ejecutan celdas. La actividad empieza después de tener las gráficas e indicadores.
-:::
-:::
+:::{.tile}
+**Idea central**
 
+La libreta conecta la lectura visual con resultados reproducibles: cada gráfica debe poder explicarse con una celda, un dato y una interpretación breve.
+:::
+:::
 ## 15. Python/Jupyter: leer el CSV de EMA
 
 ::: {.grid-2}
@@ -349,6 +361,7 @@ Qué se explica:
 ::: {.grid-2}
 :::{.img-frame}
 ![](img/graficas-python/ema_temperatura_humedad.png)
+
 :::
 
 ```python
@@ -424,11 +437,25 @@ Responder usando **Weather Data**, **Climate Consultant** y **Jupyter**:
 1. ¿Cuál es la temperatura máxima del EPW y cuándo ocurre?
 2. ¿Cuál fue el día más húmedo en la EMA?
 3. ¿Cuál es el mes crítico para temperatura?
-4. Genera en Jupyter una gr?fica de l?neas con la temperatura m?xima y la temperatura m?nima de cada mes del EPW
+4. Genera en Jupyter una gráfica de líneas con la temperatura máxima y la temperatura mínima de cada mes del EPW
 :::
 
-:::{.callout}
-Entrega: una lectura de Weather Data, una lectura de Climate Consultant, una gráfica de Jupyter y una interpretación de 5 a 7 líneas.
+:::{.delivery-card}
+::: {.delivery-head}
+**Entrega individual**
+:::
+
+::: {.delivery-body}
+Sube tu libreta a la carpeta compartida de Google Drive:
+
+<https://drive.google.com/drive/folders/1BbkIRSkDL8n6BfgtCtWjjbY5zbu4mhVZ?usp=sharing>
+
+Nombre del archivo: `analisis_clima_nombre_apellido.ipynb`
+:::
+
+::: {.delivery-check}
+Debe incluir: lectura de Weather Data, lectura de Climate Consultant, una gráfica generada en Jupyter e interpretación de 5 a 7 líneas.
+:::
 :::
 :::
 
@@ -445,11 +472,20 @@ Después del análisis climático, el EPW puede alimentar un ejemplo de evaluaci
 
 **EnerHabitat** se presenta como aplicación avanzada desarrollada en el **IER-UNAM**.
 
-Referencia: <https://pypi.org/project/enerhabitat/>
+Referencias:
+
+- Web app: <https://enerhabitat.unam.mx/>
+- Paquete Python: <https://pypi.org/project/enerhabitat/>
 :::
 
-:::{.callout}
-El ejemplo usa el mismo EPW del taller, `materials.ini` y gráficas simples de Matplotlib.
+:::{.enerhabitat-shots}
+:::{.img-frame}
+![](img/enerhabitat/web_app.png)
+:::
+
+:::{.img-frame}
+![](img/enerhabitat/python_package.png)
+:::
 :::
 :::
 
@@ -514,8 +550,10 @@ Lectura: ¿qué orientación es más crítica en el día medio y cuál se mantie
 Gracias.
 :::
 
-::: {.grid-2}
-:::{}
+::: {.grid-2 .thanks-grid}
+:::{.thanks-profile}
+![](img/perfil/julio_landa_avatar.jpg){.avatar}
+
 ::: {.big}
 Julio Landa
 :::
@@ -527,10 +565,20 @@ Ciencia de datos y metodología para análisis del clima
 Analizar clima es pasar de archivos a interpretación.
 :::
 
-:::{}
+:::{.thanks-info}
 Contacto:
 
+- Correo: <jclalo@ier.unam.mx>
 - Web: <https://juliolanda4.github.io/JulioLanda/>
 - LinkedIn: <https://www.linkedin.com/in/juliolanda4/>
+:::
+
+:::{.cneer-card}
+**CNEER**
+
+Congreso Nacional de Estudiantes de Energías Renovables
+
+- Página: <https://cneer.ier.unam.mx/>
+- Convocatoria: <https://drive.google.com/file/d/1RmoJSiMUv2rSjIgBU5YYQP9a2UzNDtQT/view?usp=sharing>
 :::
 :::

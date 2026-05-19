@@ -193,13 +193,27 @@
     <div class="slides">
 
 
-<section id="ciencia-de-datos-y-metodología-para-análisis-del-clima" class="slide level2">
+<section id="ciencia-de-datos-y-metodología-para-análisis-del-clima" class="slide level2 cover-slide">
 <h2>1. Ciencia de datos y metodología para análisis del clima</h2>
-<div class="big">
+<div class="cover-kicker">
+<p>Taller práctico</p>
+</div>
+<div class="cover-title">
 <p>De archivos climáticos a patrones interpretables</p>
 </div>
-<div class="muted">
+<div class="cover-subtitle">
 <p>EPW · EMA · Weather Data · Climate Consultant · Python/Jupyter</p>
+</div>
+<div class="cover-tags">
+<div class="cover-tag">
+<p>descarga</p>
+</div>
+<div class="cover-tag">
+<p>visualización</p>
+</div>
+<div class="cover-tag">
+<p>análisis</p>
+</div>
 </div>
 </section>
 <section id="material-para-trabajar-durante-el-taller" class="slide level2">
@@ -211,9 +225,11 @@
 <li><a href="dist/taller-clima-asistentes.zip">dist/taller-clima-asistentes.zip</a></li>
 <li>EPW de Cuernavaca</li>
 <li>CSV de EMA IMTA</li>
-<li>Libreta Jupyter para an?lisis guiado</li>
+<li>Libreta Jupyter para análisis guiado</li>
 <li>Ejemplo EnerHabitat con materiales</li>
 <li>Gráficas de referencia</li>
+<li>Weather Data: <a href="https://drajmarsh.bitbucket.io/weather-data.html" class="uri">https://drajmarsh.bitbucket.io/weather-data.html</a></li>
+<li>Climate Consultant: <a href="https://www.sbse.org/resources/climate-consultant" class="uri">https://www.sbse.org/resources/climate-consultant</a></li>
 </ul>
 <p>Requisitos:</p>
 <ul>
@@ -230,7 +246,7 @@
 </div>
 </div>
 </div>
-<div class="img-frame">
+<div class="img-frame lift-img">
 <p><img data-src="img/asistentes/contenido_zip.png"></p>
 </div>
 </div>
@@ -277,31 +293,22 @@
 </div>
 </div>
 </div>
-<div>
-<p>Flujo del taller:</p>
-<div class="flow">
-<div class="step">
-<p>Fuente</p>
-</div>
-<div class="step">
-<p>Revisión</p>
-</div>
-<div class="step">
-<p>Visualización</p>
-</div>
-<div class="step">
-<p>Pregunta</p>
-</div>
-<div class="step">
-<p>Interpretación</p>
-</div>
-</div>
+<div class="tile">
+<p><strong>Cómo leer una gráfica climática</strong></p>
+<ul>
+<li>Revisar fuente, periodo y unidades</li>
+<li>Ubicar máximos, mínimos y rangos</li>
+<li>Comparar día/noche y temporada</li>
+<li>Preguntar si el patrón afecta confort, energía u operación</li>
+<li>Convertir la observación en una decisión de análisis</li>
+</ul>
 </div>
 </div>
 </section>
 <section id="tipos-de-datos-climáticos" class="slide level2">
 <h2>5. Tipos de datos climáticos</h2>
 <div class="grid-2">
+<div class="compact">
 <div class="tile">
 <p><strong>EMA</strong></p>
 <ul>
@@ -321,10 +328,14 @@
 </ul>
 </div>
 </div>
+<div class="img-frame wide-img">
+<p><img data-src="img/graficas-python/comparativa_ema_epw.svg"></p>
+</div>
+</div>
 <div class="callout callout-none no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p>La EMA muestra una ventana reciente observada; el EPW permite leer el comportamiento anual de referencia.</p>
+<p>La EMA muestra una ventana medida, con huecos y variación reciente; el EPW sintetiza un año horario de referencia para simulación y comparación.</p>
 </div>
 </div>
 </div>
@@ -447,13 +458,7 @@
 <li>Cambiar variable y escala</li>
 <li>Identificar visualmente un periodo crítico</li>
 </ol>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>La demostración en vivo debe terminar con una pregunta: ¿qué mes u hora parece más crítica?</p>
-</div>
-</div>
-</div>
+<p>Enlace: <a href="https://drajmarsh.bitbucket.io/weather-data.html" class="uri">https://drajmarsh.bitbucket.io/weather-data.html</a></p>
 </div>
 <div class="img-frame">
 <p><img data-src="img/weather-data/weather_data_temperatura.png"></p>
@@ -473,6 +478,7 @@
 <li>Abrir archivo EPW existente</li>
 <li>Confirmar ubicación</li>
 <li>Pasar a gráficas climáticas</li>
+<li>Descarga: <a href="https://www.sbse.org/resources/climate-consultant" class="uri">https://www.sbse.org/resources/climate-consultant</a></li>
 </ul>
 </div>
 </div>
@@ -494,25 +500,22 @@
 </div>
 </div>
 </section>
-<section id="del-software-a-jupyter" class="slide level2">
-<h2>14. Del software a Jupyter</h2>
+<section id="de-la-exploración-al-análisis-reproducible" class="slide level2">
+<h2>14. De la exploración al análisis reproducible</h2>
 <div class="grid-2">
 <div>
-<p>Después de Weather Data y Climate Consultant, la libreta permite verificar con datos:</p>
+<p>Weather Data y Climate Consultant ayudan a explorar rápido; Jupyter deja el procedimiento documentado:</p>
 <ul>
-<li>Cargar librerías</li>
-<li>Leer EMA y EPW</li>
-<li>Revisar columnas, periodos y unidades</li>
-<li>Generar las mismas gráficas base</li>
-<li>Calcular indicadores puntuales</li>
+<li>Cargar EMA y EPW desde archivos locales</li>
+<li>Limpiar fechas, columnas y unidades</li>
+<li>Reproducir las gráficas del taller</li>
+<li>Calcular máximos, mínimos y promedios</li>
+<li>Guardar resultados para la entrega</li>
 </ul>
 </div>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>Hasta este punto los asistentes solo ejecutan celdas. La actividad empieza después de tener las gráficas e indicadores.</p>
-</div>
-</div>
+<div class="tile">
+<p><strong>Idea central</strong></p>
+<p>La libreta conecta la lectura visual con resultados reproducibles: cada gráfica debe poder explicarse con una celda, un dato y una interpretación breve.</p>
 </div>
 </div>
 </section>
@@ -622,14 +625,20 @@
 <li>¿Cuál es la temperatura máxima del EPW y cuándo ocurre?</li>
 <li>¿Cuál fue el día más húmedo en la EMA?</li>
 <li>¿Cuál es el mes crítico para temperatura?</li>
-<li>Genera en Jupyter una gr?fica de l?neas con la temperatura m?xima y la temperatura m?nima de cada mes del EPW</li>
+<li>Genera en Jupyter una gráfica de líneas con la temperatura máxima y la temperatura mínima de cada mes del EPW</li>
 </ol>
 </div>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>Entrega: una lectura de Weather Data, una lectura de Climate Consultant, una gráfica de Jupyter y una interpretación de 5 a 7 líneas.</p>
+<div class="delivery-card">
+<div class="delivery-head">
+<p><strong>Entrega individual</strong></p>
 </div>
+<div class="delivery-body">
+<p>Sube tu libreta a la carpeta compartida de Google Drive:</p>
+<p><a href="https://drive.google.com/drive/folders/1BbkIRSkDL8n6BfgtCtWjjbY5zbu4mhVZ?usp=sharing" class="uri">https://drive.google.com/drive/folders/1BbkIRSkDL8n6BfgtCtWjjbY5zbu4mhVZ?usp=sharing</a></p>
+<p>Nombre del archivo: <code>analisis_clima_nombre_apellido.ipynb</code></p>
+</div>
+<div class="delivery-check">
+<p>Debe incluir: lectura de Weather Data, lectura de Climate Consultant, una gráfica generada en Jupyter e interpretación de 5 a 7 líneas.</p>
 </div>
 </div>
 </div>
@@ -646,13 +655,18 @@
 <li>Comparación diaria y anual</li>
 </ul>
 <p><strong>EnerHabitat</strong> se presenta como aplicación avanzada desarrollada en el <strong>IER-UNAM</strong>.</p>
-<p>Referencia: <a href="https://pypi.org/project/enerhabitat/" class="uri">https://pypi.org/project/enerhabitat/</a></p>
+<p>Referencias:</p>
+<ul>
+<li>Web app: <a href="https://enerhabitat.unam.mx/" class="uri">https://enerhabitat.unam.mx/</a></li>
+<li>Paquete Python: <a href="https://pypi.org/project/enerhabitat/" class="uri">https://pypi.org/project/enerhabitat/</a></li>
+</ul>
 </div>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>El ejemplo usa el mismo EPW del taller, <code>materials.ini</code> y gráficas simples de Matplotlib.</p>
+<div class="enerhabitat-shots">
+<div class="img-frame">
+<p><img data-src="img/enerhabitat/web_app.png"></p>
 </div>
+<div class="img-frame">
+<p><img data-src="img/enerhabitat/python_package.png"></p>
 </div>
 </div>
 </div>
@@ -717,8 +731,9 @@
 <div class="question">
 <p>Gracias.</p>
 </div>
-<div class="grid-2">
-<div>
+<div class="grid-2 thanks-grid">
+<div class="thanks-profile">
+<p><img data-src="img/perfil/julio_landa_avatar.jpg" class="avatar"></p>
 <div class="big">
 <p>Julio Landa</p>
 </div>
@@ -727,11 +742,20 @@
 </div>
 <p>Analizar clima es pasar de archivos a interpretación.</p>
 </div>
-<div>
+<div class="thanks-info">
 <p>Contacto:</p>
 <ul>
+<li>Correo: <a href="mailto:jclalo@ier.unam.mx" class="email">jclalo@ier.unam.mx</a></li>
 <li>Web: <a href="https://juliolanda4.github.io/JulioLanda/" class="uri">https://juliolanda4.github.io/JulioLanda/</a></li>
 <li>LinkedIn: <a href="https://www.linkedin.com/in/juliolanda4/" class="uri">https://www.linkedin.com/in/juliolanda4/</a></li>
+</ul>
+</div>
+<div class="cneer-card">
+<p><strong>CNEER</strong></p>
+<p>Congreso Nacional de Estudiantes de Energías Renovables</p>
+<ul>
+<li>Página: <a href="https://cneer.ier.unam.mx/" class="uri">https://cneer.ier.unam.mx/</a></li>
+<li>Convocatoria: <a href="https://drive.google.com/file/d/1RmoJSiMUv2rSjIgBU5YYQP9a2UzNDtQT/view?usp=sharing" class="uri">https://drive.google.com/file/d/1RmoJSiMUv2rSjIgBU5YYQP9a2UzNDtQT/view?usp=sharing</a></li>
 </ul>
 </div>
 </div>
@@ -951,6 +975,42 @@
           RevealZoom
         ]
       });
+    </script>
+    <div class="image-lightbox" aria-hidden="true">
+      <button class="image-lightbox-close" type="button" aria-label="Cerrar imagen ampliada">×</button>
+      <img alt="">
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.querySelector(".image-lightbox");
+      const lightboxImage = lightbox.querySelector("img");
+      const closeButton = lightbox.querySelector(".image-lightbox-close");
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImage.removeAttribute("src");
+        lightboxImage.removeAttribute("alt");
+      }
+
+      document.querySelectorAll(".img-frame img, img.avatar").forEach((image) => {
+        image.addEventListener("click", () => {
+          lightboxImage.src = image.currentSrc || image.src;
+          lightboxImage.alt = image.alt || "";
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+        });
+      });
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      closeButton.addEventListener("click", closeLightbox);
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
+      });
+    });
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
