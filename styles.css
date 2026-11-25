@@ -198,6 +198,26 @@
   font-size: 0.42em;
   font-weight: 680;
 }
+.cover-qr {
+  position: absolute;
+  right: 2.6rem;
+  bottom: 2.2rem;
+  width: 165px;
+  padding: 0.45rem;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+  font-size: 0.38em;
+  font-weight: 650;
+}
+.cover-qr img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.28rem;
+}
 .lift-img {
   align-self: start;
   margin-top: -0.55rem;
@@ -245,18 +265,8 @@
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
   cursor: zoom-in;
 }
-.thanks-info,
-.cneer-card {
+.thanks-info {
   font-size: 0.82em;
-}
-.cneer-card {
-  border-left: 5px solid #0b63ce;
-  background: #f3f8ff;
-  border-radius: 8px;
-  padding: 0.68rem 0.82rem;
-}
-.cneer-card p {
-  margin: 0.2rem 0;
 }
 .image-lightbox {
   position: fixed;

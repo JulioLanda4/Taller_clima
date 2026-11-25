@@ -6,8 +6,8 @@
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
 
   <title>index</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,10 +16,16 @@
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -94,7 +100,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css">
   <link rel="stylesheet" href="styles.css">
   <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -214,6 +220,10 @@
 <div class="cover-tag">
 <p>análisis</p>
 </div>
+</div>
+<div class="cover-qr">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&amp;data=https%3A%2F%2Fjuliolanda4.github.io%2FTaller_clima%2F" alt="Código QR para abrir la presentación">
+<div>Escanea para abrir la presentación</div>
 </div>
 </section>
 <section id="material-para-trabajar-durante-el-taller" class="slide level2">
@@ -441,9 +451,9 @@
 <li>Variables: temperatura, humedad, radiación y viento</li>
 </ul>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>LOCATION,Cuernavaca-Matamoros.Intl.AP,MOR,MEX,...</span>
-<span id="cb1-2"><a href=""></a>DATA PERIODS,1,1,Data,Sunday,1/ 1,12/31</span>
-<span id="cb1-3"><a href=""></a>1994,1,1,1,0,...,15.40,8.70,64,...,322,0,0,...</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="" aria-label="1"></a>LOCATION,Cuernavaca-Matamoros.Intl.AP,MOR,MEX,...</span>
+<span id="cb1-2"><a href="" aria-label="2"></a>DATA PERIODS,1,1,Data,Sunday,1/ 1,12/31</span>
+<span id="cb1-3"><a href="" aria-label="3"></a>1994,1,1,1,0,...,15.40,8.70,64,...,322,0,0,...</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="weather-data-demostración-en-vivo" class="slide level2">
@@ -522,24 +532,24 @@
 <section id="pythonjupyter-leer-el-csv-de-ema" class="slide level2">
 <h2>15. Python/Jupyter: leer el CSV de EMA</h2>
 <div class="grid-2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb2-2"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-3"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-4"><a href=""></a></span>
-<span id="cb2-5"><a href=""></a>ROOT <span class="op">=</span> Path.cwd()</span>
-<span id="cb2-6"><a href=""></a>EMA_CSV <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"data"</span> <span class="op">/</span> <span class="st">"emas"</span> <span class="op">/</span> <span class="st">"INSTITUTO_MEXICANO_DE_TECNOLOG__A_DEL_AGUA_90_dias.csv"</span></span>
-<span id="cb2-7"><a href=""></a></span>
-<span id="cb2-8"><a href=""></a><span class="cf">with</span> EMA_CSV.<span class="bu">open</span>(encoding<span class="op">=</span><span class="st">"utf-8-sig"</span>) <span class="im">as</span> f:</span>
-<span id="cb2-9"><a href=""></a>    lines <span class="op">=</span> f.readlines()</span>
-<span id="cb2-10"><a href=""></a></span>
-<span id="cb2-11"><a href=""></a>header_row <span class="op">=</span> <span class="bu">next</span>(</span>
-<span id="cb2-12"><a href=""></a>    i <span class="cf">for</span> i, line <span class="kw">in</span> <span class="bu">enumerate</span>(lines)</span>
-<span id="cb2-13"><a href=""></a>    <span class="cf">if</span> line.startswith(<span class="st">'"Fecha Local"'</span>)</span>
-<span id="cb2-14"><a href=""></a>)</span>
-<span id="cb2-15"><a href=""></a></span>
-<span id="cb2-16"><a href=""></a>ema <span class="op">=</span> pd.read_csv(EMA_CSV, skiprows<span class="op">=</span>header_row)</span>
-<span id="cb2-17"><a href=""></a>ema[<span class="st">"Fecha Local"</span>] <span class="op">=</span> pd.to_datetime(ema[<span class="st">"Fecha Local"</span>])</span>
-<span id="cb2-18"><a href=""></a>ema <span class="op">=</span> ema.sort_values(<span class="st">"Fecha Local"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-label="1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb2-2"><a href="" aria-label="2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-3"><a href="" aria-label="3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-4"><a href="" aria-label="4"></a></span>
+<span id="cb2-5"><a href="" aria-label="5"></a>ROOT <span class="op">=</span> Path.cwd()</span>
+<span id="cb2-6"><a href="" aria-label="6"></a>EMA_CSV <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"data"</span> <span class="op">/</span> <span class="st">"emas"</span> <span class="op">/</span> <span class="st">"INSTITUTO_MEXICANO_DE_TECNOLOG__A_DEL_AGUA_90_dias.csv"</span></span>
+<span id="cb2-7"><a href="" aria-label="7"></a></span>
+<span id="cb2-8"><a href="" aria-label="8"></a><span class="cf">with</span> EMA_CSV.<span class="bu">open</span>(encoding<span class="op">=</span><span class="st">"utf-8-sig"</span>) <span class="im">as</span> f:</span>
+<span id="cb2-9"><a href="" aria-label="9"></a>    lines <span class="op">=</span> f.readlines()</span>
+<span id="cb2-10"><a href="" aria-label="10"></a></span>
+<span id="cb2-11"><a href="" aria-label="11"></a>header_row <span class="op">=</span> <span class="bu">next</span>(</span>
+<span id="cb2-12"><a href="" aria-label="12"></a>    i <span class="cf">for</span> i, line <span class="kw">in</span> <span class="bu">enumerate</span>(lines)</span>
+<span id="cb2-13"><a href="" aria-label="13"></a>    <span class="cf">if</span> line.startswith(<span class="st">'"Fecha Local"'</span>)</span>
+<span id="cb2-14"><a href="" aria-label="14"></a>)</span>
+<span id="cb2-15"><a href="" aria-label="15"></a></span>
+<span id="cb2-16"><a href="" aria-label="16"></a>ema <span class="op">=</span> pd.read_csv(EMA_CSV, skiprows<span class="op">=</span>header_row)</span>
+<span id="cb2-17"><a href="" aria-label="17"></a>ema[<span class="st">"Fecha Local"</span>] <span class="op">=</span> pd.to_datetime(ema[<span class="st">"Fecha Local"</span>])</span>
+<span id="cb2-18"><a href="" aria-label="18"></a>ema <span class="op">=</span> ema.sort_values(<span class="st">"Fecha Local"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div>
 <p>Qué se explica:</p>
 <ul>
@@ -557,44 +567,44 @@
 <div class="img-frame">
 <p><img data-src="img/graficas-python/ema_temperatura_humedad.png"></p>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a>ema_daily <span class="op">=</span> ema.set_index(<span class="st">"Fecha Local"</span>).resample(<span class="st">"D"</span>).agg({</span>
-<span id="cb3-2"><a href=""></a>    <span class="st">"Temperatura del Aire (°C)"</span>: <span class="st">"mean"</span>,</span>
-<span id="cb3-3"><a href=""></a>    <span class="st">"Humedad relativa (%)"</span>: <span class="st">"mean"</span>,</span>
-<span id="cb3-4"><a href=""></a>    <span class="st">"Radiación Solar (W/m²)"</span>: <span class="kw">lambda</span> x: x.<span class="bu">sum</span>() <span class="op">/</span> <span class="dv">6</span> <span class="op">/</span> <span class="dv">1000</span></span>
-<span id="cb3-5"><a href=""></a>})</span>
-<span id="cb3-6"><a href=""></a></span>
-<span id="cb3-7"><a href=""></a>fig <span class="op">=</span> px.line(</span>
-<span id="cb3-8"><a href=""></a>    ema_daily.reset_index(),</span>
-<span id="cb3-9"><a href=""></a>    x<span class="op">=</span><span class="st">"Fecha Local"</span>,</span>
-<span id="cb3-10"><a href=""></a>    y<span class="op">=</span>[<span class="st">"Temperatura del Aire (°C)"</span>, <span class="st">"Humedad relativa (%)"</span>],</span>
-<span id="cb3-11"><a href=""></a>    title<span class="op">=</span><span class="st">"EMA IMTA: temperatura y humedad diaria"</span>,</span>
-<span id="cb3-12"><a href=""></a>    labels<span class="op">=</span>{<span class="st">"value"</span>: <span class="st">"°C / %"</span>, <span class="st">"variable"</span>: <span class="st">"Variable"</span>}</span>
-<span id="cb3-13"><a href=""></a>)</span>
-<span id="cb3-14"><a href=""></a></span>
-<span id="cb3-15"><a href=""></a>fig.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-label="1"></a>ema_daily <span class="op">=</span> ema.set_index(<span class="st">"Fecha Local"</span>).resample(<span class="st">"D"</span>).agg({</span>
+<span id="cb3-2"><a href="" aria-label="2"></a>    <span class="st">"Temperatura del Aire (°C)"</span>: <span class="st">"mean"</span>,</span>
+<span id="cb3-3"><a href="" aria-label="3"></a>    <span class="st">"Humedad relativa (%)"</span>: <span class="st">"mean"</span>,</span>
+<span id="cb3-4"><a href="" aria-label="4"></a>    <span class="st">"Radiación Solar (W/m²)"</span>: <span class="kw">lambda</span> x: x.<span class="bu">sum</span>() <span class="op">/</span> <span class="dv">6</span> <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb3-5"><a href="" aria-label="5"></a>})</span>
+<span id="cb3-6"><a href="" aria-label="6"></a></span>
+<span id="cb3-7"><a href="" aria-label="7"></a>fig <span class="op">=</span> px.line(</span>
+<span id="cb3-8"><a href="" aria-label="8"></a>    ema_daily.reset_index(),</span>
+<span id="cb3-9"><a href="" aria-label="9"></a>    x<span class="op">=</span><span class="st">"Fecha Local"</span>,</span>
+<span id="cb3-10"><a href="" aria-label="10"></a>    y<span class="op">=</span>[<span class="st">"Temperatura del Aire (°C)"</span>, <span class="st">"Humedad relativa (%)"</span>],</span>
+<span id="cb3-11"><a href="" aria-label="11"></a>    title<span class="op">=</span><span class="st">"EMA IMTA: temperatura y humedad diaria"</span>,</span>
+<span id="cb3-12"><a href="" aria-label="12"></a>    labels<span class="op">=</span>{<span class="st">"value"</span>: <span class="st">"°C / %"</span>, <span class="st">"variable"</span>: <span class="st">"Variable"</span>}</span>
+<span id="cb3-13"><a href="" aria-label="13"></a>)</span>
+<span id="cb3-14"><a href="" aria-label="14"></a></span>
+<span id="cb3-15"><a href="" aria-label="15"></a>fig.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="pythonjupyter-leer-el-epw" class="slide level2">
 <h2>17. Python/Jupyter: leer el EPW</h2>
 <div class="grid-2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>epw_cols <span class="op">=</span> [</span>
-<span id="cb4-2"><a href=""></a>    <span class="st">"year"</span>,<span class="st">"month"</span>,<span class="st">"day"</span>,<span class="st">"hour"</span>,<span class="st">"minute"</span>,<span class="st">"data_source"</span>,</span>
-<span id="cb4-3"><a href=""></a>    <span class="st">"dry_bulb"</span>,<span class="st">"dew_point"</span>,<span class="st">"rh"</span>,<span class="st">"pressure"</span>,</span>
-<span id="cb4-4"><a href=""></a>    <span class="st">"extr_horiz_rad"</span>,<span class="st">"extr_direct_norm_rad"</span>,<span class="st">"horiz_ir"</span>,</span>
-<span id="cb4-5"><a href=""></a>    <span class="st">"ghi"</span>,<span class="st">"dni"</span>,<span class="st">"dhi"</span>,</span>
-<span id="cb4-6"><a href=""></a>    <span class="st">"global_horiz_illum"</span>,<span class="st">"direct_norm_illum"</span>,</span>
-<span id="cb4-7"><a href=""></a>    <span class="st">"diffuse_horiz_illum"</span>,<span class="st">"zenith_lum"</span>,</span>
-<span id="cb4-8"><a href=""></a>    <span class="st">"wind_dir"</span>,<span class="st">"wind_speed"</span></span>
-<span id="cb4-9"><a href=""></a>]</span>
-<span id="cb4-10"><a href=""></a></span>
-<span id="cb4-11"><a href=""></a>epw <span class="op">=</span> pd.read_csv(</span>
-<span id="cb4-12"><a href=""></a>    EPW,</span>
-<span id="cb4-13"><a href=""></a>    skiprows<span class="op">=</span><span class="dv">8</span>,</span>
-<span id="cb4-14"><a href=""></a>    header<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb4-15"><a href=""></a>    names<span class="op">=</span>epw_cols,</span>
-<span id="cb4-16"><a href=""></a>    usecols<span class="op">=</span><span class="bu">range</span>(<span class="bu">len</span>(epw_cols))</span>
-<span id="cb4-17"><a href=""></a>)</span>
-<span id="cb4-18"><a href=""></a>epw <span class="op">=</span> epw.drop(columns<span class="op">=</span>[<span class="st">"data_source"</span>])</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-label="1"></a>epw_cols <span class="op">=</span> [</span>
+<span id="cb4-2"><a href="" aria-label="2"></a>    <span class="st">"year"</span>,<span class="st">"month"</span>,<span class="st">"day"</span>,<span class="st">"hour"</span>,<span class="st">"minute"</span>,<span class="st">"data_source"</span>,</span>
+<span id="cb4-3"><a href="" aria-label="3"></a>    <span class="st">"dry_bulb"</span>,<span class="st">"dew_point"</span>,<span class="st">"rh"</span>,<span class="st">"pressure"</span>,</span>
+<span id="cb4-4"><a href="" aria-label="4"></a>    <span class="st">"extr_horiz_rad"</span>,<span class="st">"extr_direct_norm_rad"</span>,<span class="st">"horiz_ir"</span>,</span>
+<span id="cb4-5"><a href="" aria-label="5"></a>    <span class="st">"ghi"</span>,<span class="st">"dni"</span>,<span class="st">"dhi"</span>,</span>
+<span id="cb4-6"><a href="" aria-label="6"></a>    <span class="st">"global_horiz_illum"</span>,<span class="st">"direct_norm_illum"</span>,</span>
+<span id="cb4-7"><a href="" aria-label="7"></a>    <span class="st">"diffuse_horiz_illum"</span>,<span class="st">"zenith_lum"</span>,</span>
+<span id="cb4-8"><a href="" aria-label="8"></a>    <span class="st">"wind_dir"</span>,<span class="st">"wind_speed"</span></span>
+<span id="cb4-9"><a href="" aria-label="9"></a>]</span>
+<span id="cb4-10"><a href="" aria-label="10"></a></span>
+<span id="cb4-11"><a href="" aria-label="11"></a>epw <span class="op">=</span> pd.read_csv(</span>
+<span id="cb4-12"><a href="" aria-label="12"></a>    EPW,</span>
+<span id="cb4-13"><a href="" aria-label="13"></a>    skiprows<span class="op">=</span><span class="dv">8</span>,</span>
+<span id="cb4-14"><a href="" aria-label="14"></a>    header<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb4-15"><a href="" aria-label="15"></a>    names<span class="op">=</span>epw_cols,</span>
+<span id="cb4-16"><a href="" aria-label="16"></a>    usecols<span class="op">=</span><span class="bu">range</span>(<span class="bu">len</span>(epw_cols))</span>
+<span id="cb4-17"><a href="" aria-label="17"></a>)</span>
+<span id="cb4-18"><a href="" aria-label="18"></a>epw <span class="op">=</span> epw.drop(columns<span class="op">=</span>[<span class="st">"data_source"</span>])</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div>
 <p>Lectura:</p>
 <ul>
@@ -674,29 +684,29 @@
 <section id="enerhabitat-flujo-de-ejemplo" class="slide level2">
 <h2>21. EnerHabitat: flujo de ejemplo</h2>
 <div class="grid-2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="im">from</span> enerhabitat <span class="im">import</span> Location, System, config</span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a>config.<span class="bu">file</span> <span class="op">=</span> <span class="st">"materials.ini"</span></span>
-<span id="cb5-4"><a href=""></a></span>
-<span id="cb5-5"><a href=""></a>location <span class="op">=</span> Location(<span class="st">"data/epw/MEX_MOR_...TMYx.epw"</span>)</span>
-<span id="cb5-6"><a href=""></a></span>
-<span id="cb5-7"><a href=""></a>orientaciones <span class="op">=</span> {</span>
-<span id="cb5-8"><a href=""></a>    <span class="st">"Norte"</span>: <span class="dv">0</span>,</span>
-<span id="cb5-9"><a href=""></a>    <span class="st">"Este"</span>: <span class="dv">90</span>,</span>
-<span id="cb5-10"><a href=""></a>    <span class="st">"Sur"</span>: <span class="dv">180</span>,</span>
-<span id="cb5-11"><a href=""></a>    <span class="st">"Oeste"</span>: <span class="dv">270</span>,</span>
-<span id="cb5-12"><a href=""></a>}</span>
-<span id="cb5-13"><a href=""></a></span>
-<span id="cb5-14"><a href=""></a><span class="cf">for</span> nombre, azimuth <span class="kw">in</span> orientaciones.items():</span>
-<span id="cb5-15"><a href=""></a>    location.meanDay(day<span class="op">=</span><span class="dv">15</span>, month<span class="op">=</span><span class="dv">5</span>, year<span class="op">=</span><span class="dv">2026</span>)</span>
-<span id="cb5-16"><a href=""></a>    muro <span class="op">=</span> System(</span>
-<span id="cb5-17"><a href=""></a>        location<span class="op">=</span>location,</span>
-<span id="cb5-18"><a href=""></a>        tilt<span class="op">=</span><span class="dv">90</span>,</span>
-<span id="cb5-19"><a href=""></a>        azimuth<span class="op">=</span>azimuth,</span>
-<span id="cb5-20"><a href=""></a>        absortance<span class="op">=</span><span class="fl">0.65</span>,</span>
-<span id="cb5-21"><a href=""></a>        layers<span class="op">=</span>[(<span class="st">"Concreto"</span>, <span class="fl">0.12</span>), (<span class="st">"Aislamiento"</span>, <span class="fl">0.05</span>), (<span class="st">"Yeso"</span>, <span class="fl">0.015</span>)],</span>
-<span id="cb5-22"><a href=""></a>    )</span>
-<span id="cb5-23"><a href=""></a>    tsa <span class="op">=</span> muro.Tsa()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-label="1"></a><span class="im">from</span> enerhabitat <span class="im">import</span> Location, System, config</span>
+<span id="cb5-2"><a href="" aria-label="2"></a></span>
+<span id="cb5-3"><a href="" aria-label="3"></a>config.<span class="bu">file</span> <span class="op">=</span> <span class="st">"materials.ini"</span></span>
+<span id="cb5-4"><a href="" aria-label="4"></a></span>
+<span id="cb5-5"><a href="" aria-label="5"></a>location <span class="op">=</span> Location(<span class="st">"data/epw/MEX_MOR_...TMYx.epw"</span>)</span>
+<span id="cb5-6"><a href="" aria-label="6"></a></span>
+<span id="cb5-7"><a href="" aria-label="7"></a>orientaciones <span class="op">=</span> {</span>
+<span id="cb5-8"><a href="" aria-label="8"></a>    <span class="st">"Norte"</span>: <span class="dv">0</span>,</span>
+<span id="cb5-9"><a href="" aria-label="9"></a>    <span class="st">"Este"</span>: <span class="dv">90</span>,</span>
+<span id="cb5-10"><a href="" aria-label="10"></a>    <span class="st">"Sur"</span>: <span class="dv">180</span>,</span>
+<span id="cb5-11"><a href="" aria-label="11"></a>    <span class="st">"Oeste"</span>: <span class="dv">270</span>,</span>
+<span id="cb5-12"><a href="" aria-label="12"></a>}</span>
+<span id="cb5-13"><a href="" aria-label="13"></a></span>
+<span id="cb5-14"><a href="" aria-label="14"></a><span class="cf">for</span> nombre, azimuth <span class="kw">in</span> orientaciones.items():</span>
+<span id="cb5-15"><a href="" aria-label="15"></a>    location.meanDay(day<span class="op">=</span><span class="dv">15</span>, month<span class="op">=</span><span class="dv">5</span>, year<span class="op">=</span><span class="dv">2026</span>)</span>
+<span id="cb5-16"><a href="" aria-label="16"></a>    muro <span class="op">=</span> System(</span>
+<span id="cb5-17"><a href="" aria-label="17"></a>        location<span class="op">=</span>location,</span>
+<span id="cb5-18"><a href="" aria-label="18"></a>        tilt<span class="op">=</span><span class="dv">90</span>,</span>
+<span id="cb5-19"><a href="" aria-label="19"></a>        azimuth<span class="op">=</span>azimuth,</span>
+<span id="cb5-20"><a href="" aria-label="20"></a>        absortance<span class="op">=</span><span class="fl">0.65</span>,</span>
+<span id="cb5-21"><a href="" aria-label="21"></a>        layers<span class="op">=</span>[(<span class="st">"Concreto"</span>, <span class="fl">0.12</span>), (<span class="st">"Aislamiento"</span>, <span class="fl">0.05</span>), (<span class="st">"Yeso"</span>, <span class="fl">0.015</span>)],</span>
+<span id="cb5-22"><a href="" aria-label="22"></a>    )</span>
+<span id="cb5-23"><a href="" aria-label="23"></a>    tsa <span class="op">=</span> muro.Tsa()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div>
 <p>Qué se muestra:</p>
 <ul>
@@ -748,14 +758,6 @@
 <li>Correo: <a href="mailto:jclalo@ier.unam.mx" class="email">jclalo@ier.unam.mx</a></li>
 <li>Web: <a href="https://juliolanda4.github.io/JulioLanda/" class="uri">https://juliolanda4.github.io/JulioLanda/</a></li>
 <li>LinkedIn: <a href="https://www.linkedin.com/in/juliolanda4/" class="uri">https://www.linkedin.com/in/juliolanda4/</a></li>
-</ul>
-</div>
-<div class="cneer-card">
-<p><strong>CNEER</strong></p>
-<p>Congreso Nacional de Estudiantes de Energías Renovables</p>
-<ul>
-<li>Página: <a href="https://cneer.ier.unam.mx/" class="uri">https://cneer.ier.unam.mx/</a></li>
-<li>Convocatoria: <a href="https://drive.google.com/file/d/1RmoJSiMUv2rSjIgBU5YYQP9a2UzNDtQT/view?usp=sharing" class="uri">https://drive.google.com/file/d/1RmoJSiMUv2rSjIgBU5YYQP9a2UzNDtQT/view?usp=sharing</a></li>
 </ul>
 </div>
 </div>

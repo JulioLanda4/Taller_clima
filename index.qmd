@@ -24,6 +24,11 @@ análisis
 :::
 :::
 
+::: {.cover-qr}
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fjuliolanda4.github.io%2FTaller_clima%2F" alt="Código QR para abrir la presentación" />
+<div>Escanea para abrir la presentación</div>
+:::
+
 ## 2. Material para trabajar durante el taller
 
 ::: {.grid-2}
@@ -573,12 +578,4 @@ Contacto:
 - LinkedIn: <https://www.linkedin.com/in/juliolanda4/>
 :::
 
-:::{.cneer-card}
-**CNEER**
-
-Congreso Nacional de Estudiantes de Energías Renovables
-
-- Página: <https://cneer.ier.unam.mx/>
-- Convocatoria: <https://drive.google.com/file/d/1RmoJSiMUv2rSjIgBU5YYQP9a2UzNDtQT/view?usp=sharing>
-:::
 :::
